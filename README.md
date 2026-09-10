@@ -11,7 +11,7 @@ This is the first time I'm giving this workshop. I've tested it on Windows (Dev 
    I did all the testing with SSH urls.
    
    ```
-   git clone `git@github.com:edburns/awesome-copilot.git awesome-copilot-01`
+   git clone git@github.com:edburns/awesome-copilot.git awesome-copilot-01
    cd awesome-copilot-01
    git checkout checkout shepherd-task-v1.0.0
    ```
