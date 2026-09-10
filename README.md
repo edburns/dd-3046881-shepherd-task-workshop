@@ -29,15 +29,19 @@ This is the first time I'm giving this workshop. I've tested it on Windows (Dev 
    - **Description**: `shepherd-task simple-math campaign`
 
    - **Visibility**: Public
+   
+   - **Start with a template**: No template
 
    - **Add README**: On
 
    - **Add .gitignore**: No .gitignore
 
    - **Add license**: MIT license (my default)
-
-   - Note your fully qualified repository URL. For discussion, `myRepoUrl`.
-
+   
+   Select **Create repository**.
+   
+   - Note your fully qualified repository URL. For discussion, `myRepositoryUrl`.
+   
 4. Open the `awesome-copilot-01/plugins/shepherd-task/README.md`.
 
    Ensure the **Repository prerequisites** are all satisfied.
@@ -65,9 +69,9 @@ This is the first time I'm giving this workshop. I've tested it on Windows (Dev 
    Windows
 
    ```powershell
-   cd $HOME\.copilot\plugins\shepherd-task\test\simple-math
-   Get-Help .\run-campaign.ps1
-   .\run-campaign.ps1 -RepositoryUrl `myRepoUrl`
+   Get-Help $HOME\.copilot\plugins\shepherd-task\test\simple-math\run-campaign.ps1
+   & "$HOME\.copilot\plugins\shepherd-task\test\simple-math\run-campaign.ps1" `
+     -RepositoryUrl `myRepositoryUrl`
    ```
    
    macOS, GNU/Linux
@@ -75,7 +79,7 @@ This is the first time I'm giving this workshop. I've tested it on Windows (Dev 
    ```bash
    cd $HOME/.copilot/plugins/shepherd-task/test/simple-math
    ./run-campaign.ps1 -h
-   ./run-campaign.ps1 `myRepoUrl`
+   ./run-campaign.ps1 `myRepositoryUrl`
    ```
    
 ## Commentary on the prepared `simple-math` campaign
@@ -180,3 +184,50 @@ By the time you have invoked `shepherd-task-25-given-list` the work proceeds in 
 The post mortem is not pushed by the `shepherd-task` system, you must commit and push it yourself, if desired.
 
 The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-windows/blob/experiment/shepherd-control/1-math-control-remove-before-merge/shepherd-tasks-61e0ba90-97d8-4ee8-b32c-90a2ce3ec2a4-20260909-2010/20260909-2054-post-mortem.md .
+
+## Run the prepared `cargotracker-add-change-arrival-deadline-feature` campaign
+
+1. Visit https://github.com/azure-javaee/cargotracker .
+
+1. Select **Fork**.
+
+   - **Owner**: your GitHub ID that is associated with your Microsoft GitHub Copilot license.
+
+   - **Repository name**: Suggested name: `YYYYMMDD-HHMM-cargotracker-add-feature` where `YYYYMMDD-HHMM` are something like `20260909-1943-cargotracker-add-feature` but for your current time and date. The point is uniqueness.
+
+   - Ensure **Copy the `master` branch only is not checked**.
+   
+   - Select **Create fork**.
+   
+   - Note your fully qualified repository URL. For discussion, `myRepositoryUrl`.
+   
+1. Select the **Actions** tab. 
+
+1. Select **I understand my workflows, go ahead and enable them**.
+
+1. Select the **Settings** tab.
+
+1. Search for **Issues**. Ensure the checkbox is checked. ✅
+
+1. Set the default branch to **20260902-2104Z-commit-e7b651f-liberty**.
+
+1. Ensure you have the desired version of `shepherd-task` on your system. See [the `simple-math` example](#run-the-prepared-simple-math-campaign).
+
+1. Invoke the `run-campaign`.
+
+   Windows
+   
+   ```powershell
+   Get-Help $HOME\.copilot\plugins\shepherd-task\test\cargotracker-add-change-arrival-deadline-feature\run-campaign.ps1
+   & "$HOME\.copilot\plugins\shepherd-task\test\cargotracker-add-change-arrival-deadline-feature\run-campaign.ps1" `
+     -RepositoryUrl '`myRepositoryUrl`'
+   ```
+   
+   macOS, GNU/Linux
+   
+   ```bash
+   $HOME/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature/run-campaign.sh -h
+   $HOME/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature/run-campaign.sh '`myRepositoryUrl`'
+   ```
+   
+   
