@@ -13,31 +13,31 @@ This is the first time I'm giving this workshop. I've tested it on Windows (Dev 
    ```
    git clone git@github.com:edburns/awesome-copilot.git awesome-copilot-01
    cd awesome-copilot-01
-   git checkout checkout shepherd-task-v1.0.0
+   git checkout shepherd-task-v1.0.0
    ```
    
 2. Open the `awesome-copilot-01/plugins/shepherd-task/README.md`.
 
-  Ensure the **Local prerequisites** are all satisfied.
+   Ensure the **Local prerequisites** are all satisfied.
   
 3. Create a new empty GitHub repository with the following attributes
 
-  - Owner: your GitHub ID that is associated with your Microsoft GitHub Copilot license.
-  
-  - Repository name: Suggested name: `YYYYMMDD-HHMM-simple-math` where `YYYYMMDD-HHMM` are something like `20260909-1943-simple-math` but for your current time and date. The point is uniqueness.
-  
-  - Description: `shepherd-task simple-math campaign`
-  
-  - Visibility: Public
-  
-  - Add README: On
-  
-  - Add .gitignore: No .gitignore
-  
-  - Add license: MIT license (my default)
-  
-  - Note your fully qualified repository URL. For discussion, `myRepoUrl`.
-  
+   - Owner: your GitHub ID that is associated with your Microsoft GitHub Copilot license.
+
+   - Repository name: Suggested name: `YYYYMMDD-HHMM-simple-math` where `YYYYMMDD-HHMM` are something like `20260909-1943-simple-math` but for your current time and date. The point is uniqueness.
+
+   - Description: `shepherd-task simple-math campaign`
+
+   - Visibility: Public
+
+   - Add README: On
+
+   - Add .gitignore: No .gitignore
+
+   - Add license: MIT license (my default)
+
+   - Note your fully qualified repository URL. For discussion, `myRepoUrl`.
+
 4. Open the `awesome-copilot-01/plugins/shepherd-task/README.md`.
 
    Ensure the **Repository prerequisites** are all satisfied.
