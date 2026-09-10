@@ -173,8 +173,6 @@ C:\Users\edburns\workareas\dd-3056167-01-windows-shepherd-control
 
 See `awesome-copilot-01/plugins/shepherd-task/README.md` **Run stage 25 with an ordered issue list**.
 
-**Note:** There is a script to shepherd an individual issue 
-
 #### Stages 30, 40, 50
 
 By the time you have invoked `shepherd-task-25-given-list` the work proceeds in an entirely human hands-off manner. See `awesome-copilot-01/plugins/shepherd-task/README.md` Sections **Stage 30 readiness boundary** through **Workflow approval helper** and **Post-mortem behavior**.
