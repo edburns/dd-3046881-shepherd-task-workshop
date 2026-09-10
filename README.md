@@ -96,7 +96,10 @@ This section explains what's happening as the `simple-math` campaign runs. It us
 
 #### Stage 00 - Initialize campaign
 
+The `run-campaign` script creates a top level "container" issue in the specified repository. This is something you'd have to create yourself when invoking the campaign for real.
+
 ```powershell
+  cd C:\Users\edburns\workareas\dd-3056162-shepherd-control
   & 'C:\Users\edburns\.copilot\plugins\shepherd-task\scripts\shepherd-task-00-init-campaign.ps1' `
       -CampaignIssueNumber '1' `
       -CampaignShortname 'math-control' `
@@ -129,7 +132,7 @@ In a real-world invocation of a campaign, here is where you would spend time cre
 
 The section headings of the plan have a required format, as described in `awesome-copilot-01/plugins/shepherd-task/README.md` **Create and resolve the plan when issues do not exist**. 
 
-The ignorance reduction plan should be as detailed as possible. The skill includes several examples of real-world plan and uses them to guide the creation of your plan.
+The ignorance reduction plan should be as detailed as possible. The skill includes several examples of real-world plans and uses them to guide the creation of your plan.
 
 #### Stage 15 - Prepare Stage 20
 
@@ -144,9 +147,9 @@ C:\Users\edburns\workareas\dd-3056167-01-windows-shepherd-control
    -CampaignMetadataDirectory '1-math-control-remove-before-merge' `
 ```
 
-Look at the issues created in your repository. Take this repository as an example.
+Look at the issues created in your repository. Take [this repository](https://github.com/edburns/dd-3056167-01-windows) as an example.
 
-1. The top level "container" issue. If your repository supports issue types, this would be an **Epic**. https://github.com/edburns/dd-3056167-01-windows/issues/1
+1. The top level "container" issue, created before initializing the campaign. If your repository supports issue types, this would be an **Epic**. https://github.com/edburns/dd-3056167-01-windows/issues/1 . Note that `shepherd-task` does not close this issue. The intent is that the all of the work in the child issues is merged to the topic branch, and the human user creates a PR from that branch to close the top level issue. In this example, the topic branch is https://github.com/edburns/dd-3056167-01-windows/tree/experiment/shepherd-control .
 
 2. Individual issues within the container issue for each step in the plan.
 
@@ -169,6 +172,8 @@ C:\Users\edburns\workareas\dd-3056167-01-windows-shepherd-control
 ```
 
 See `awesome-copilot-01/plugins/shepherd-task/README.md` **Run stage 25 with an ordered issue list**.
+
+**Note:** There is a script to shepherd an individual issue 
 
 #### Stages 30, 40, 50
 
