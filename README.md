@@ -18,7 +18,7 @@ This is the first time I'm giving this workshop. I've tested it on Windows (Dev 
    
 2. Open the `awesome-copilot-01/plugins/shepherd-task/README.md`.
 
-  Ensure the **local Prerequisites** are all satisfied.
+  Ensure the **Local prerequisites** are all satisfied.
   
 3. Create a new empty GitHub repository with the following attributes
 
