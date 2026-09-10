@@ -22,19 +22,19 @@ This is the first time I'm giving this workshop. I've tested it on Windows (Dev 
   
 3. Create a new empty GitHub repository with the following attributes
 
-   - Owner: your GitHub ID that is associated with your Microsoft GitHub Copilot license.
+   - **Owner**: your GitHub ID that is associated with your Microsoft GitHub Copilot license.
 
-   - Repository name: Suggested name: `YYYYMMDD-HHMM-simple-math` where `YYYYMMDD-HHMM` are something like `20260909-1943-simple-math` but for your current time and date. The point is uniqueness.
+   - **Repository name**: Suggested name: `YYYYMMDD-HHMM-simple-math` where `YYYYMMDD-HHMM` are something like `20260909-1943-simple-math` but for your current time and date. The point is uniqueness.
 
-   - Description: `shepherd-task simple-math campaign`
+   - **Description**: `shepherd-task simple-math campaign`
 
-   - Visibility: Public
+   - **Visibility**: Public
 
-   - Add README: On
+   - **Add README**: On
 
-   - Add .gitignore: No .gitignore
+   - **Add .gitignore**: No .gitignore
 
-   - Add license: MIT license (my default)
+   - **Add license**: MIT license (my default)
 
    - Note your fully qualified repository URL. For discussion, `myRepoUrl`.
 
