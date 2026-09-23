@@ -87,7 +87,7 @@ This workshop includes two prepared campaigns to illustrate the operation of the
    ```powershell
    Get-Help $HOME\.copilot\plugins\shepherd-task\test\simple-math\run-campaign.ps1
    & "$HOME\.copilot\plugins\shepherd-task\test\simple-math\run-campaign.ps1" `
-     -RepositoryUrl `myRepositoryUrl`
+     -RepositoryUrl 'myRepositoryUrl'
    ```
    
    macOS, GNU/Linux
@@ -95,7 +95,7 @@ This workshop includes two prepared campaigns to illustrate the operation of the
    ```bash
    cd $HOME/.copilot/plugins/shepherd-task/test/simple-math
    ./run-campaign.ps1 -h
-   ./run-campaign.ps1 `myRepositoryUrl`
+   ./run-campaign.ps1 'myRepositoryUrl'
    ```
    
 ### Commentary on the prepared `simple-math` campaign
@@ -280,14 +280,14 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
    ```powershell
    Get-Help $HOME\.copilot\plugins\shepherd-task\test\cargotracker-add-change-arrival-deadline-feature\run-campaign.ps1
    & "$HOME\.copilot\plugins\shepherd-task\test\cargotracker-add-change-arrival-deadline-feature\run-campaign.ps1" `
-     -RepositoryUrl '`myRepositoryUrl`'
+     -RepositoryUrl 'myRepositoryUrl'
    ```
    
    macOS, GNU/Linux
    
    ```bash
    $HOME/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature/run-campaign.sh -h
-   $HOME/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature/run-campaign.sh '`myRepositoryUrl`'
+   $HOME/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature/run-campaign.sh 'myRepositoryUrl'
    ```
 
 #### Examine the post-mortem report
