@@ -94,8 +94,8 @@ This workshop includes two prepared campaigns to illustrate the operation of the
    
    ```bash
    cd $HOME/.copilot/plugins/shepherd-task/test/simple-math
-   ./run-campaign.ps1 -h
-   ./run-campaign.ps1 'myRepositoryUrl'
+   ./run-campaign.sh -h
+   ./run-campaign.sh 'myRepositoryUrl'
    ```
    
 ### Commentary on the prepared `simple-math` campaign
