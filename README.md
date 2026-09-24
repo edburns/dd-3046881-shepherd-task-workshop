@@ -2,7 +2,7 @@
 
 ## Caveats
 
-This is the first time I'm giving this workshop. I've tested it on Windows (Dev Box), macOS, and GNU/Linux. There may be additional wrinkles. We'll work through them.
+This workshop has been tested on Windows (Dev Box), macOS, and GNU/Linux. 
 
 ## Install `shepherd-task`
 
@@ -13,7 +13,7 @@ This is the first time I'm giving this workshop. I've tested it on Windows (Dev 
    ```
    git clone git@github.com:edburns/awesome-copilot.git awesome-copilot-01
    cd awesome-copilot-01
-   git checkout shepherd-task-v1.0.3
+   git checkout shepherd-task-v1.0.4
    ```
    
 1. Open the `awesome-copilot-01/plugins/shepherd-task/README.md`.
