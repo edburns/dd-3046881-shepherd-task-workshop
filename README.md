@@ -271,6 +271,18 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
 
 1. Set the default branch to **20260902-2104Z-commit-e7b651f-liberty**.
 
+1. In the left navigation panel, expand **Copilot** and select **Code review**.
+
+1. Under **Review effort level**, select **Balanced**.
+
+1. Select **General**.
+
+1. Scroll down to the bottom, to the **Danger Zone**.
+
+1. Select **Leave fork network**. This is useful to allow you to create multiple forks of the upstream.
+
+   1. Complete the remaining steps to leave the fork network.
+
 1. Ensure you have the desired version of `shepherd-task` on your system. See [the `simple-math` example](#run-the-prepared-simple-math-campaign).
 
 1. Invoke the `run-campaign`.
