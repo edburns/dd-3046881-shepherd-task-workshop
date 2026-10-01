@@ -247,7 +247,7 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
 
 ## Run the prepared `cargotracker-add-change-arrival-deadline-feature` campaign
 
-1. Visit https://github.com/azure-javaee/cargotracker .
+1. Visit https://github.com/edburns/dd-3016202-cargotracker-devoxx-be-2026
 
 1. Select **Fork**.
 
@@ -269,7 +269,7 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
 
 1. Search for **Issues**. Ensure the checkbox is checked. ✅
 
-1. Set the default branch to **20260902-2104Z-commit-e7b651f-liberty**.
+1. Set the default branch to **edburns/dd-3016202-cargotracker-devoxx-be-2026-experiment**.
 
 1. In the left navigation panel, expand **Copilot** and select **Code review**.
 
