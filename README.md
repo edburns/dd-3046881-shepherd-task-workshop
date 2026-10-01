@@ -293,45 +293,45 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
 
    Windows:
 
-      ```
-      $Fixture = "$HOME\.copilot\plugins\shepherd-task\test\cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition"
-      $RepositoryUrl = 'https://github.com/OWNER/YYYYMMDD-HHMM-cargotracker-add-feature'
+   ```
+   $Fixture = "$HOME\.copilot\plugins\shepherd-task\test\cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition"
+   $RepositoryUrl = 'https://github.com/OWNER/YYYYMMDD-HHMM-cargotracker-add-feature'
 
-      Get-Help "$Fixture\run-campaign.ps1" -Full
+   Get-Help "$Fixture\run-campaign.ps1" -Full
 
-      & "$Fixture\run-campaign.ps1" `
-        -RepositoryUrl $RepositoryUrl `
-        -ValidateInstalledOnly
-      ```
+   & "$Fixture\run-campaign.ps1" `
+     -RepositoryUrl $RepositoryUrl `
+     -ValidateInstalledOnly
+   ```
 
    macOS or GNU/Linux:
 
-      ```
-      fixture="$HOME/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition"
-      repository_url='https://github.com/OWNER/YYYYMMDD-HHMM-cargotracker-add-feature'
+   ```
+   fixture="$HOME/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition"
+   repository_url='https://github.com/OWNER/YYYYMMDD-HHMM-cargotracker-add-feature'
 
-      "$fixture/run-campaign.sh" --help
+   "$fixture/run-campaign.sh" --help
 
-      "$fixture/run-campaign.sh" \
-        --repository-url "$repository_url" \
-        --validate-installed-only
-      ```
+   "$fixture/run-campaign.sh" \
+     --repository-url "$repository_url" \
+     --validate-installed-only
+   ```
 
 12. If validation passes, run the paid experiment.
 
    Windows:
 
-      ```
-      & "$Fixture\run-campaign.ps1" `
-        -RepositoryUrl $RepositoryUrl
-      ```
+   ```
+   & "$Fixture\run-campaign.ps1" `
+     -RepositoryUrl $RepositoryUrl
+   ```
 
    macOS or GNU/Linux:
 
-      ```
-      "$fixture/run-campaign.sh" \
-        --repository-url "$repository_url"
-      ```
+   ```
+   "$fixture/run-campaign.sh" \
+     --repository-url "$repository_url"
+   ```
 
 #### Examine the post-mortem report
 
