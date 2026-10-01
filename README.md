@@ -247,7 +247,7 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
 
 ## Run the prepared `cargotracker-add-change-arrival-deadline-feature` campaign
 
-1. Visit https://github.com/edburns/dd-3016202-cargotracker-devoxx-be-2026
+1. Visit https://github.com/azure-javaee/dd-3016202-cargotracker-devoxx-be-2026
 
 1. Select **Fork**.
 
