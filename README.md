@@ -261,6 +261,16 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
    
    - Note your fully qualified repository URL. For discussion, `myRepositoryUrl`.
    
+1. Select the **Settings** tab.
+
+1. Select **General**.
+
+1. Scroll down to the bottom, to the **Danger Zone**.
+
+1. Select **Leave fork network**. This is useful to allow you to create multiple forks of the upstream.
+
+   1. Complete the remaining steps to leave the fork network. Wait for it to appear as standalone.
+
 1. Select the **Actions** tab. 
 
 1. Select **I understand my workflows, go ahead and enable them**.
@@ -273,34 +283,47 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
 
 1. In the left navigation panel, expand **Copilot** and select **Code review**.
 
+1. Verify that Copilot cloud agent is available for the standalone repository. Balanced code review does not itself prove that issues can be assigned to Copilot. The campaign requires Copilot to appear as an available issue assignee; availability depends on the account or organization’s cloud-agent policy and repository access. 
+
 1. Under **Review effort level**, select **Balanced**.
-
-1. Select **General**.
-
-1. Scroll down to the bottom, to the **Danger Zone**.
-
-1. Select **Leave fork network**. This is useful to allow you to create multiple forks of the upstream.
-
-   1. Complete the remaining steps to leave the fork network.
 
 1. Ensure you have the desired version of `shepherd-task` on your system. See [the `simple-math` example](#run-the-prepared-simple-math-campaign).
 
-1. Invoke the `run-campaign`.
+11. Run the non-mutating installed-layout validation first.
 
-   Windows
-   
-   ```powershell
-   Get-Help $HOME\.copilot\plugins\shepherd-task\test\cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition\run-campaign.ps1
-   & "$HOME\.copilot\plugins\shepherd-task\test\cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition\run-campaign.ps1" `
-     -RepositoryUrl 'myRepositoryUrl'
-   ```
-   
-   macOS, GNU/Linux
-   
-   ```bash
-   $HOME/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition/run-campaign.sh -h
-   $HOME/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition/run-campaign.sh 'myRepositoryUrl'
-   ```
+   Windows:
+
+$Fixture = "$HOME\.copilot\plugins\shepherd-task\test\cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition"
+$RepositoryUrl = 'https://github.com/OWNER/YYYYMMDD-HHMM-cargotracker-add-feature'
+
+Get-Help "$Fixture\run-campaign.ps1" -Full
+
+& "$Fixture\run-campaign.ps1" `
+  -RepositoryUrl $RepositoryUrl `
+  -ValidateInstalledOnly
+
+   macOS or GNU/Linux:
+
+fixture="$HOME/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition"
+repository_url='https://github.com/OWNER/YYYYMMDD-HHMM-cargotracker-add-feature'
+
+"$fixture/run-campaign.sh" --help
+
+"$fixture/run-campaign.sh" \
+  --repository-url "$repository_url" \
+  --validate-installed-only
+
+12. If validation passes, run the paid experiment.
+
+   Windows:
+
+& "$Fixture\run-campaign.ps1" `
+  -RepositoryUrl $RepositoryUrl
+
+   macOS or GNU/Linux:
+
+"$fixture/run-campaign.sh" \
+  --repository-url "$repository_url"
 
 #### Examine the post-mortem report
 
