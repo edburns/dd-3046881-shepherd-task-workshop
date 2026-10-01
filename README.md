@@ -255,7 +255,7 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
 
    - **Repository name**: Suggested name: `YYYYMMDD-HHMM-cargotracker-add-feature` where `YYYYMMDD-HHMM` are something like `20260909-1943-cargotracker-add-feature` but for your current time and date. The point is uniqueness.
 
-   - Ensure **Copy the `master` branch only is not checked**.
+   - Ensure **Copy the `edburns/dd-3016202-cargotracker-devoxx-be-2026-01` branch only is not checked**.
    
    - Select **Create fork**.
    
@@ -290,16 +290,16 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
    Windows
    
    ```powershell
-   Get-Help $HOME\.copilot\plugins\shepherd-task\test\cargotracker-add-change-arrival-deadline-feature\run-campaign.ps1
-   & "$HOME\.copilot\plugins\shepherd-task\test\cargotracker-add-change-arrival-deadline-feature\run-campaign.ps1" `
+   Get-Help $HOME\.copilot\plugins\shepherd-task\test\cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition\run-campaign.ps1
+   & "$HOME\.copilot\plugins\shepherd-task\test\cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition\run-campaign.ps1" `
      -RepositoryUrl 'myRepositoryUrl'
    ```
    
    macOS, GNU/Linux
    
    ```bash
-   $HOME/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature/run-campaign.sh -h
-   $HOME/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature/run-campaign.sh 'myRepositoryUrl'
+   $HOME/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition/run-campaign.sh -h
+   $HOME/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition/run-campaign.sh 'myRepositoryUrl'
    ```
 
 #### Examine the post-mortem report
@@ -311,7 +311,7 @@ The `shepherd-task` system will cause a post-mortem report to be written to the 
 - https://github.com/edburns/dd-3061974-03-bash-simple-math-ubuntu/blob/experiment/shepherd-control/3-math-control-remove-before-merge/shepherd-tasks-2f2e3b72-45a8-4649-8951-45d46264d114-20260910-1709/20260910-1802-post-mortem.md
 
    
-### Commentary on the prepared `cargotracker-add-change-arrival-deadline-feature` campaign
+### Commentary on the prepared `cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition` campaign
 
 The process for this campaign is exactly the same as for `simple-math` but the domain of the campaign is much more complex.
 
@@ -329,7 +329,7 @@ Your campaign run will include output similar to the following.
 === shepherd-task Cargo Tracker run ===
 Repository:          edburns/dd-3061974-02-cargotracker
 Workareas directory: /Users/edburns/workareas
-Fixture root:        /Users/edburns/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature
+Fixture root:        /Users/edburns/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition
 Primary checkout:    /Users/edburns/workareas/dd-3061974-02-cargotracker-shepherd-target
 Control worktree:    /Users/edburns/workareas/dd-3061974-02-cargotracker-shepherd-control
 Source branch:       20260902-2104Z-commit-e7b651f-liberty
