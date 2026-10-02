@@ -247,6 +247,15 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
 
 ## Run the prepared `cargotracker-add-change-arrival-deadline-feature` campaign
 
+This procedure uses the Devoxx 2026 fixture with the cleaned application baseline:
+
+- Fixture source: `edburns/awesome-copilot`, branch `edburns/shepherd-task-v1.0.4-20260930`, commit `3dd3749db96fba7514c229c200591e24a22a8bd5`.
+- Application baseline: `89e107c3ed6dd3655c2ffdf638b57d6c47099dab`.
+- Source branch: `edburns/dd-3016202-cargotracker-devoxx-be-2026-experiment`.
+- Campaign branch: `edburns/dd-3016202-cargotracker-devoxx-be-2026-add-feature-control`.
+
+This baseline removes historical preparation artifacts and the evidence-matrix maintenance requirement. Existing CI, tests, acceptance checks, and shepherd telemetry remain enabled. The Stage 30 remediation completion timeout is still 10 minutes; neither a timeout increase nor the completion-tracking change proposed in `edburns/awesome-copilot#15` is included in this fixture revision.
+
 1. Visit https://github.com/azure-javaee/dd-3016202-cargotracker-devoxx-be-2026
 
 1. Select **Fork**.
@@ -255,7 +264,7 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
 
    - **Repository name**: Suggested name: `YYYYMMDD-HHMM-cargotracker-add-feature` where `YYYYMMDD-HHMM` are something like `20260909-1943-cargotracker-add-feature` but for your current time and date. The point is uniqueness.
 
-   - Ensure **Copy the `edburns/dd-3016202-cargotracker-devoxx-be-2026-01` branch only is not checked**.
+   - Ensure **Copy the default branch only** is not checked, regardless of which branch name the checkbox displays.
    
    - Select **Create fork**.
    
@@ -281,15 +290,35 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
 
 1. Set the default branch to **edburns/dd-3016202-cargotracker-devoxx-be-2026-experiment**.
 
+1. Confirm that the standalone repository contains that source branch and the exact application baseline commit listed above. The driver uses the pinned commit, not the current default-branch tip.
+
+1. Confirm that neither `experiment/shepherd-shared-baseline` nor `edburns/dd-3016202-cargotracker-devoxx-be-2026-add-feature-control` already exists in the standalone repository. The local `<repository-name>-shepherd-target` and `<repository-name>-shepherd-control` paths under the chosen workareas directory must also be unused. Use a fresh repository and paths rather than overwriting an earlier experiment.
+
 1. In the left navigation panel, expand **Copilot** and select **Code review**.
 
 1. Verify that Copilot cloud agent is available for the standalone repository. Balanced code review does not itself prove that issues can be assigned to Copilot. The campaign requires Copilot to appear as an available issue assignee; availability depends on the account or organization’s cloud-agent policy and repository access. 
 
 1. Under **Review effort level**, select **Balanced**.
 
-1. Ensure you have the desired version of `shepherd-task` on your system. See [the `simple-math` example](#run-the-prepared-simple-math-campaign).
+1. Install `shepherd-task` from the `awesome-copilot` checkout at the fixture source commit listed above. Do not rely on the `1.0.4` version label alone: older installations with that label still pin the pre-cleanup baseline.
 
-11. Run the non-mutating installed-layout validation first.
+   Run the appropriate installer from that checkout's repository root:
+
+   Windows:
+
+   ```powershell
+   .\plugins\shepherd-task\scripts\install-task-shepherd.ps1
+   ```
+
+   macOS or GNU/Linux:
+
+   ```bash
+   plugins/shepherd-task/scripts/install-task-shepherd.sh
+   ```
+
+1. Run the non-mutating installed-layout validation first. The examples below assume the default `$HOME/.copilot` installation; if you set `COPILOT_HOME`, use that directory instead.
+
+   Before running validation, inspect the installed `run-campaign.ps1` or `run-campaign.sh` and confirm that `ExpectedBaselineSha` or `expected_baseline_sha` is `89e107c3ed6dd3655c2ffdf638b57d6c47099dab`. Validation checks the installed files against their own contracts; it does not prove that they match the updated source checkout. A consistent old installation can pass.
 
    Windows:
 
@@ -317,7 +346,7 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
      --validate-installed-only
    ```
 
-12. If validation passes, run the paid experiment.
+1. If the installed baseline matches and validation passes, run the paid experiment.
 
    Windows:
 
@@ -333,9 +362,9 @@ The sample post-mortem is available at https://github.com/edburns/dd-3056167-01-
      --repository-url "$repository_url"
    ```
 
-#### Examine the post-mortem report
+#### Historical post-mortem examples from `simple-math`
 
-The `shepherd-task` system will cause a post-mortem report to be written to the campaign metadata directory. Here are the examples from the Windows, macOS, and GNU/Linux variants.
+The `shepherd-task` system writes a post-mortem report to the campaign metadata directory. These historical `simple-math` reports illustrate the report format only; they are not results from the current Cargo Tracker fixture.
 
 - https://github.com/edburns/dd-3061974-04-windows-simple-math/blob/experiment/shepherd-control/1-math-control-remove-before-merge/shepherd-tasks-fb7a1a66-a5de-43de-9206-194ee2a0e062-20260910-1032/20260910-1136-post-mortem.md
 - https://github.com/edburns/dd-3061974-03-bash-simple-math/blob/experiment/shepherd-control/1-math-control-remove-before-merge/shepherd-tasks-28a343f5-3c4e-4135-baa4-902faa957677-20260910-0954/20260910-1035-post-mortem.md
@@ -346,7 +375,9 @@ The `shepherd-task` system will cause a post-mortem report to be written to the 
 
 The process for this campaign is exactly the same as for `simple-math` but the domain of the campaign is much more complex.
 
-To get an idea of the complexity take a look at the ignorance reduction plan for the campaign. Here is the ignorance reduction plan for windows, macOS, and GNU/Linux for this campaign.
+The current fixture's plan is embedded as readable text in `01-prepare-base-branch.ps1` and as the equivalent compressed payload in `cargotracker-plan.md.gz.b64`, both under `test/cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition/` in the installed plugin. The fixture contracts verify that these representations agree.
+
+The following Windows, macOS, and GNU/Linux plans are historical examples from older Cargo Tracker campaigns, not the plan used by the current Devoxx fixture:
 
 - https://github.com/edburns/dd-3061974-03-cargotracker-windows/blob/experiment/shepherd-control/1-arrival-deadline-control-remove-before-merge/add-change-arrival-deadline-feature-ignorance-reduction-plan.md
 - https://github.com/edburns/dd-3061974-02-cargotracker/blob/experiment/shepherd-control/1-arrival-deadline-control-remove-before-merge/add-change-arrival-deadline-feature-ignorance-reduction-plan.md
@@ -363,18 +394,30 @@ Workareas directory: /Users/edburns/workareas
 Fixture root:        /Users/edburns/.copilot/plugins/shepherd-task/test/cargotracker-add-change-arrival-deadline-feature-devoxx-2026-edition
 Primary checkout:    /Users/edburns/workareas/dd-3061974-02-cargotracker-shepherd-target
 Control worktree:    /Users/edburns/workareas/dd-3061974-02-cargotracker-shepherd-control
-Source branch:       20260902-2104Z-commit-e7b651f-liberty
+Source branch:       edburns/dd-3016202-cargotracker-devoxx-be-2026-experiment
 Baseline branch:     experiment/shepherd-shared-baseline
-Control branch:      experiment/shepherd-control
+Control branch:      edburns/dd-3016202-cargotracker-devoxx-be-2026-add-feature-control
 ```
 
-When the campaign completes successfully, your **Primary checkout** is the state of Cargo Tracker **before** the work and your **Control worktree** is the state of Cargo Tracker after the campaign. In both cases, you can start Cargo Tracker on JDK 17 with the following command.
+When the campaign completes successfully, your **Primary checkout** is the state of Cargo Tracker **before** the work and your **Control worktree** is the state of Cargo Tracker after the campaign. In both cases, configure `JAVA_HOME` and `PATH` for JDK 17, then run Maven from the checkout's **`demo/` directory**, not its repository root. Run one variant at a time to avoid a server-port conflict.
 
-```
-./mvnw clean package -Popenliberty liberty:run
+macOS or GNU/Linux, starting at the chosen checkout's root:
+
+```bash
+cd demo
+log_file="$(date +%Y%m%d-%H%M)-job-logs.txt"
+./mvnw clean package -Popenliberty liberty:run 2>&1 | tee "$log_file"
 ```
 
-Look for a log message similar to the following:
+Windows, starting at the chosen checkout's root:
+
+```powershell
+Set-Location demo
+$LogFile = "$(Get-Date -Format 'yyyyMMdd-HHmm')-job-logs.txt"
+.\mvnw.cmd clean package -Popenliberty liberty:run 2>&1 | Tee-Object -FilePath $LogFile
+```
+
+Inspect the exact log file named by `log_file` or `LogFile` for startup failures and a message similar to the following:
 
 ```
 [INFO] [AUDIT   ] CWWKT0016I: Web application available (default_host): http://192.168.0.219:8080/cargo-tracker/
@@ -382,21 +425,20 @@ Look for a log message similar to the following:
 
 #### Exercising Cargo Tracker
 
-1. Visit the URL in from the log message.
+1. Visit the URL from the log message.
 
 1. Select **Administration interface**.
 
 1. In the **Not Routed Cargo** section, notice that **DEF789** has an edit date widget in the **Deadline** column.
 
-   This widget is will not be present in the **Primary checkout** variant.
+   This widget will not be present in the **Primary checkout** variant.
    
-1. Press `Ctrl-C` or invoke `./mvnw -Popenliberty liberty:stop` in another window to stop the server.
+1. Press `Ctrl-C` to stop the server before starting the other variant.
 
-#### Examine the post-mortem report
+#### Historical Cargo Tracker post-mortem examples
 
-The `shepherd-task` system will cause a post-mortem report to be written to the campaign metadata directory. Here are the examples from the Windows, macOS, and GNU/Linux variants.
+Use the post-mortem in your new run's campaign metadata directory to evaluate this experiment. The links below are historical reports from older Cargo Tracker fixtures, not results for the cleaned Devoxx baseline.
 
 - Windows ⌛
 - https://github.com/edburns/dd-3061974-02-cargotracker/blob/experiment/shepherd-control/1-arrival-deadline-control-remove-before-merge/shepherd-tasks-c9e71f6c-ab48-4663-8125-5b796a989029-20260910-0948/20260910-1246-post-mortem.md
 - https://github.com/edburns/dd-3061974-05-cargotracker-linux/blob/experiment/shepherd-control/1-arrival-deadline-control-remove-before-merge/shepherd-tasks-34dfbae2-dbd9-4702-ad9a-808b93224026-20260910-1738/20260910-2025-post-mortem.md
-
